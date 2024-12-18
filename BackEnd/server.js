@@ -12,7 +12,7 @@ app.use(express.json())
 // Specify inital routes for the API
 app.use("api/v1/movies", movies)
 app.use('*', (req, res)=>{
-    res.status(404).json({error:"not found"})
+    res.status(404).json({error:"not found"}) // If someone tries to go to a route that doesn't exist, the wildcard returns a 404 page
 })
 
 export default app
