@@ -10,6 +10,7 @@ async function main(){
     try {
         //Connect to the MongoDB Cluster
         await client.connect() // Connect to the database and return a promise
+        console.log('Connected to MongoDB Cluster');
 
         app.listen(port, ()=> { //Start the web server
             console.log('Sever is running on port:'+port); 
