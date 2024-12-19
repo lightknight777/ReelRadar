@@ -1,15 +1,16 @@
-let movies
+// This file implements the movies data access object to allow our code to access movie(s) in our database
+let movies // Declare movies to store the reference to the database
 
 export default class MoviesDAO{
-    static async injectDB(conn) {
+    static async injectDB(conn) { // Export moviesDAO which contains an async method injectDB which is called as soon as the server starts and provides the database reference to movies.
         if(movies){
-            return
+            return // If the reference already exists, then we return.
         }
         try {
-            movies = await conn.db(process.env.MOVIEREVIEWS_NS).collection('movies')
+            movies = await conn.db(process.env.MOVIEREVIEWS_NS).collection('movies') // Else connect to the database name and movies collection
         }
         catch(e) {
-            console.error(`unable to connect in MoviesDAO: ${e}`)
+            console.error(`unable to connect in MoviesDAO: ${e}`) // If we fail to get the reference, send an error to the console.
         }
     }
 
