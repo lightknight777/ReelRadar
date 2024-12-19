@@ -14,4 +14,19 @@ export default class MoviesDAO{
         }
     }
 
+    static async getMovies ({//default filter
+        filters = null,
+        page = 0,
+        moviesPerPage = 20, // Will only get 20 movies at once
+    } = {}) {
+        let query
+        if (filters){
+            if ("title" in filters){
+                query = { $text: {$search: filters['title']}}
+            } else if ("rated" in filters){
+                query = { "rated": { $eq: filters['rated']}}
+            }
+        }
+    }
+
 }
