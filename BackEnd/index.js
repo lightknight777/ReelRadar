@@ -15,7 +15,7 @@ async function main(){
         console.log('Connected to MongoDB Cluster');
 
         app.listen(port, ()=> { //Start the web server
-            console.log('Sever is running on port:'+port); 
+            console.log('Server is running on port:'+port); 
         })
     } catch (e) {
         console.error(e);
